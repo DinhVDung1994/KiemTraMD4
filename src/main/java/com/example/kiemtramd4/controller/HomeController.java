@@ -47,6 +47,11 @@ public class HomeController {
         cityService.save(city);
         return new ModelAndView("redirect:/showcity");
     }
+
+    @ModelAttribute("editNation")
+    public List<Nation> getNation(){
+        return nationService.findAll();
+    }
     @GetMapping("/edit/{id}")
     public ModelAndView showEdit(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView("edit");
